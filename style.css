@@ -1,0 +1,615 @@
+/* Basic Reset & Root Variables */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #0056b3; /* Darker Blue */
+    --accent-color: #ffc107; /* Yellow/Gold */
+    --text-color: #333;
+    --light-text-color: #f8f9fa;
+    --bg-color: #ffffff;
+    --alt-bg-color: #f8f9fa; /* Light Gray */
+    --border-color: #dee2e6;
+    --font-family: 'Arial', sans-serif;
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* For smooth scrolling on nav clicks */
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: var(--header-height);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.logo span {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.burger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 86, 179, 0.8)), url('https://via.placeholder.com/1920x1080/cccccc/969696?text=Modern+Office+Background') no-repeat center center/cover;
+    color: var(--light-text-color);
+    height: calc(100vh - var(--header-height));
+    min-height: 500px; /* Minimum height for smaller viewports */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: var(--header-height); /* Offset for fixed header */
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-logo { /* Ensure this is before hero-content or has appropriate specificity */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    max-width: 200px;
+    height: auto;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    border: none; /* For form button */
+    cursor: pointer; /* For form button */
+}
+
+.cta-button:hover {
+    background-color: #e0a800; /* Darker accent */
+    transform: translateY(-2px);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+}
+
+
+.section-intro {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+    text-align: left; /* For paragraphs within sections for better readability */
+}
+.content-section p.section-intro { text-align: center; }
+
+
+.alt-bg {
+    background-color: var(--alt-bg-color);
+}
+
+/* Features Grid (ERP Section) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.feature-card {
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* MODIFIED: Ensures image clipping */
+    display: flex; /* ADDED: For better control of content alignment */
+    flex-direction: column; /* ADDED: Stacks items vertically */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* UPDATED .feature-icon STYLES */
+.feature-icon {
+    width: 100%;
+    height: 160px; /* Adjust height as needed for ERP section images. */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    text-align: center; /* Center heading if image is full width */
+}
+
+.feature-card p { /* Ensure paragraph text is aligned as needed */
+    text-align: center; /* Or left, depending on design */
+    font-size: 0.95em;
+    flex-grow: 1; /* Allows p to take remaining space if cards have different text length */
+}
+
+
+/* Benefits List */
+.benefits-list {
+    list-style: none; /* Use custom bullets or none */
+    padding-left: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.benefits-list li {
+    font-size: 1.05em;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.benefits-list li::before {
+    content: '✔'; /* Checkmark */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1em;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.contact-form button {
+    align-self: flex-start; /* Align button to the left for wider screens */
+}
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 1em;
+}
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+}
+footer p { margin-bottom: 5px; }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: var(--header-height);
+        background-color: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        height: calc(100vh - var(--header-height));
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0; /* For animation */
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero-section {
+        height: auto; /* Adjust height for mobile */
+        min-height: calc(100vh - var(--header-height));
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+
+    .contact-form button {
+        align-self: stretch; /* Full width button on mobile */
+    }
+}
+
+/* Burger Animation */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Nav Link Animation - when nav becomes active */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Or 'block' if it's the only item in a flex column */
+}
+
+.dropbtn .arrow {
+    font-size: 0.7em; /* Adjust arrow size */
+    margin-left: 5px;
+    display: inline-block; /* To allow transforms */
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-color);
+    min-width: 220px; /* Adjust as needed */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0 0 5px 5px; /* Optional rounded corners for bottom */
+    border-top: 2px solid var(--primary-color); /* Optional top border */
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left; /* Ensure dropdown links are left-aligned */
+    font-weight: normal; /* Override general nav link bolding if any */
+}
+
+.dropdown-content a:hover {
+    background-color: var(--alt-bg-color);
+    color: var(--primary-color); /* Hover color for dropdown items */
+}
+
+/* Show dropdown on hover (for desktop) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn .arrow {
+    transform: rotate(180deg);
+}
+
+/* School Management System Section Styles */
+#school-management {
+    /* Uses .content-section styles by default */
+}
+
+.sms-features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.sms-feature-category {
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-color); /* Accent border */
+    overflow: hidden; /* MODIFIED: Ensures image clipping */
+    display: flex; /* ADDED: For better control of content alignment */
+    flex-direction: column; /* ADDED: Stacks items vertically */
+}
+
+
+.sms-feature-category h3 {
+    font-size: 1.5em; /* Slightly larger than feature-card h3 */
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color); /* Separator for title */
+    text-align: center; /* Center heading if image is full width */
+}
+
+/* UPDATED .sms-category-icon STYLES */
+.sms-category-icon {
+    width: 100%; /* Makes the image span the full width of its container within the card's padding */
+    height: 180px; /* Sets a fixed height. Adjust this value as needed. */
+    object-fit: cover; /* Preserves aspect ratio, fills dimensions, clips if necessary. */
+    border-radius: 8px; /* Rounded corners for the image. */
+    margin-bottom: 20px; /* Space between image and text content. */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects. */
+}
+
+.sms-category-icon:hover {
+    transform: scale(1.03); /* Slightly enlarges on hover. */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover. */
+}
+
+.sms-feature-category-content { /* ADDED: Container for text below image */
+    flex-grow: 1; /* Allows this content to take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.sms-feature-category-content h3 { /* Target h3 inside this new div if needed */
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 15px; /* Original margin */
+    padding-bottom: 10px; /* Original padding */
+    border-bottom: 1px solid var(--border-color); /* Original border */
+    text-align: center; /* Keep centered */
+}
+
+
+/* Styles for unordered list */
+.sms-feature-category ul {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin-top: 0;
+    flex-grow: 1; /* Allows ul to take remaining space in flex column */
+}
+
+/* Styles for individual list items */
+.sms-feature-category ul li {
+    list-style-type: none !important;
+    padding-left: 35px !important; /* This padding creates space for the icon and the gap */
+    margin-bottom: 12px;
+    position: relative;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* Styles for the Font Awesome icon (<i> tag) WITHIN the list item */
+.sms-feature-category ul li i {
+    position: absolute;
+    left: 0px; /* Icon positioned at the start of the li's padding area */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1em; /* Original size, adjust if needed for alignment */
+    width: 25px; /* The icon takes up this much width */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Responsive Design Adjustments for Dropdown */
+@media (max-width: 768px) {
+    /* ... (your existing responsive styles) ... */
+
+    .nav-links li { /* Existing rule, ensure it's there for animation */
+        margin: 20px 0;
+        opacity: 0;
+    }
+
+    /* Mobile Dropdown Handling */
+    .dropdown .dropbtn { /* Allow click on mobile */
+        display: flex; /* Helps align arrow */
+        justify-content: space-between; /* Pushes arrow to right */
+        width: 100%;
+        padding: 10px 20px; /* Match other mobile nav links padding */
+    }
+    .dropdown .dropbtn .arrow {
+        font-size: 1em; /* Make arrow more visible on mobile */
+    }
+
+    .dropdown-content {
+        position: static; /* Remove absolute positioning for mobile */
+        display: none;    /* Hidden by default, JS will toggle */
+        box-shadow: none;
+        min-width: 100%;
+        border-top: none;
+        padding-left: 20px; /* Indent dropdown items */
+        background-color: transparent; /* Blend with mobile nav bg */
+    }
+    .dropdown-content.show-mobile-dropdown { /* Class to show mobile dropdown */
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 10px 15px; /* Adjust padding for mobile */
+        color: var(--text-color); /* Ensure correct color */
+    }
+    .dropdown-content a:hover {
+        background-color: var(--alt-bg-color); /* Consistent hover for mobile */
+        color: var(--primary-color);
+    }
+
+    /* Hide desktop hover effect for dropdown on mobile */
+    .dropdown:hover .dropdown-content {
+        display: none; /* Overridden by .show-mobile-dropdown if JS adds it */
+    }
+    .dropdown.active-mobile-dropdown .dropdown-content { /* JS will toggle this class */
+        display: block;
+    }
+    .dropdown.active-mobile-dropdown .dropbtn .arrow {
+        transform: rotate(180deg);
+    }
+
+
+    .sms-features-container {
+        grid-template-columns: 1fr; /* Stack SMS features on mobile */
+    }
+
+    .sms-feature-category h3,
+    .feature-card h3 {
+        font-size: 1.3em; /* Slightly smaller headings on mobile for better fit */
+    }
+    .sms-feature-category ul li,
+    .feature-card p {
+        font-size: 0.9em; /* Slightly smaller text on mobile */
+    }
+}
